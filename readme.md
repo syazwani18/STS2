@@ -1,2 +1,0 @@
-# STS - Smart Training System
-
