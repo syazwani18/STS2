@@ -1,2 +1,2 @@
-#STS - Smart Training System
+# STS - Smart Training System
 
