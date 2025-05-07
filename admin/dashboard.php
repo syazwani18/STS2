@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../config/config.php';
+require_once '../config/functions.php'; 
 
 // Check if user is admin
 if (!isAdmin()) {

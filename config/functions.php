@@ -20,7 +20,7 @@ function requireLogin() {
 function requireAdmin() {
     requireLogin();
     if (!isAdmin()) {
-        header("Location: /dashboard.php");
+        header("Location: /staff/dashboard.php");
         exit();
     }
 }
