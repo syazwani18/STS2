@@ -292,7 +292,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="task.php"><i class="fas fa-chart-line"></i> Tasks</a>
     <a href="#"><i class="fas fa-file-alt"></i> Application status</a>
     <a href="#"><i class="fas fa-file-alt"></i> Submissions</a>
-    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="./auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
 </div>
 
 <!-- Main Content Area -->
