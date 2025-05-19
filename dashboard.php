@@ -16,7 +16,7 @@ if (!isset($_SESSION['user_id'])) {
     <style>
         body { transition: all 0.3s ease-in-out; }
         body {
-    background-image: url('http://localhost/STS/v2/assets/img/sedco.jpg'); /* Replace with the path to your image */
+    background-image: url('./v2/assets/img/sedco.jpg'); /* Replace with the path to your image */
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */

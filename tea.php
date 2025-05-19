@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -190,7 +190,7 @@
     }
   </script>
 </head>
-<body>
+<>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
@@ -209,7 +209,7 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <h4 class="text-white text-center mb-4">Effectiveness Form</h4>
+    <h4 class="text-white text-center mb-4">EA Form</h4>
     <a href="dashboard.php"><i class="fas fa-chart-line"></i> Dashboard</a>
     <a href="#"><i class="fas fa-user"></i> Profile</a>
     <a href="task.php"><i class="fas fa-chart-line"></i> Tasks</a>
@@ -221,7 +221,7 @@
   <!-- Main Content -->
   <div class="form-container">
     <div class="center mb-4">
-      <img src="http://localhost/STS/v2/assets/img/logo.png" alt="SEDCO Logo" style="height:60px;"><br>
+      <img src=".//STS/v2/assets/img/logo.png" alt="SEDCO Logo" style="height:60px;"><br>
       <h5 class="mt-3 fw-bold">TRAINING EFFECTIVENESS ASSESSMENT FORM</h5>
       <em>Post-Training Evaluation – Improvement Assessment (Conducted in June or December of the Training Year)</em>
     </div>
@@ -311,7 +311,12 @@
         <tr><td class="no-border">Evaluated by: <strong></strong></td></tr>
         <tr><td class="no-border">Head of Division/Section: <input type="text" name="head_division" class="input-field" required></td></tr>
         <tr><td class="no-border">Date of Evaluation: <input type="date" name="date" class="input-field" required></td></tr>
-        <tr><td class="no-border">Signature: <input type="text" name="signature" class="input-field" required></td></tr>
+        <tr><td class="no-border">Signature:<br><canvas id="signatureCanvas" width="300" height="100" style="border:1px solid #ccc; border-radius:5px; background-color:#fff;"></canvas>
+        <br><button type="button" class="btn btn-sm btn-outline-secondary mt-2" onclick="clearCanvas()">Clear Signature</button>
+        <input type="hidden" name="signature" id="signatureInput" required>
+      </td>
+</tr>
+
       </table>
 
       <div class="center mt-4">
@@ -320,6 +325,75 @@
       </div>
     </form>
   </div>
+
+  <script>
+    const canvas = document.getElementById('signatureCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+
+    canvas.addEventListener('mousedown', (e) => {
+      drawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!drawing) return;
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    });
+
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseleave', () => drawing = false);
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      document.getElementById('signatureInput').value = '';
+    }
+
+    document.querySelector('form').addEventListener('submit', function (e) {
+      const dataURL = canvas.toDataURL('image/png');
+      document.getElementById('signatureInput').value = dataURL;
+    });
+  </script>
+
+<script>
+  const canvas = document.getElementById('signatureCanvas');
+  const ctx = canvas.getContext('2d');
+  let drawing = false;
+
+  canvas.addEventListener('mousedown', (e) => {
+    drawing = true;
+    ctx.beginPath();
+    ctx.moveTo(e.offsetX, e.offsetY);
+  });
+
+  canvas.addEventListener('mousemove', (e) => {
+    if (!drawing) return;
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+  });
+
+  canvas.addEventListener('mouseup', () => drawing = false);
+  canvas.addEventListener('mouseleave', () => drawing = false);
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById('signatureInput').value = '';
+  }
+
+  // Capture signature on form submit
+  document.querySelector('form').addEventListener('submit', function (e) {
+    const dataURL = canvas.toDataURL('image/png');
+    document.getElementById('signatureInput').value = dataURL;
+  });
+</script>
 
 </body>
 </html>

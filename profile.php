@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
-            background: url('http://localhost/STS/v2/assets/img/sedco.jpg') no-repeat center center fixed;
+            background: url('./v2/assets/img/sedco.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Source Sans Pro', sans-serif;
             margin: 0;

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db_connect.php';
+require './assets/config/db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
-            background: url('http://localhost/STS/v2/assets/img/sedco.jpg') no-repeat center center fixed;
+            background: url('./v2/assets/img/sedco.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Source Sans Pro', sans-serif;
         }
@@ -148,5 +148,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>
 </body>
 </html>
-
-
