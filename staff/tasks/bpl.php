@@ -286,8 +286,9 @@
                     <td><input type="date" name="tarikh_latihan"></td>
                 </tr>
                 <tr>
-                    <td>Tandatangan</td>
-                    <td><input type="text" name="tt_latihan" class="input-field"></td>
+                     <tr><td class="no-border">Signature:<br><canvas id="signatureCanvas" width="300" height="100" style="border:1px solid #ccc; border-radius:5px; background-color:#fff;"></canvas>
+                 <br><button type="button" class="btn btn-sm btn-outline-secondary mt-2" onclick="clearCanvas()">Clear Signature</button>
+                <input type="hidden" name="signature" id="signatureInput" required>
                 </tr>
             </table>
 
@@ -302,8 +303,9 @@
                     <td><input type="date" name="tarikh_bahagian"></td>
                 </tr>
                 <tr>
-                    <td>Tandatangan</td>
-                    <td><input type="text" name="tt_bahagian" class="input-field"></td>
+                    <tr><td class="no-border">Signature:<br><canvas id="signatureCanvas" width="300" height="100" style="border:1px solid #ccc; border-radius:5px; background-color:#fff;"></canvas>
+                 <br><button type="button" class="btn btn-sm btn-outline-secondary mt-2" onclick="clearCanvas()">Clear Signature</button>
+                <input type="hidden" name="signature" id="signatureInput" required>
                 </tr>
             </table>
 
@@ -321,8 +323,9 @@
                     <td><input type="date" name="tarikh_pgs"></td>
                 </tr>
                 <tr>
-                    <td>Tandatangan</td>
-                    <td><input type="text" name="tt_pgs" class="input-field"></td>
+                    <tr><td class="no-border">Signature:<br><canvas id="signatureCanvas" width="300" height="100" style="border:1px solid #ccc; border-radius:5px; background-color:#fff;"></canvas>
+                 <br><button type="button" class="btn btn-sm btn-outline-secondary mt-2" onclick="clearCanvas()">Clear Signature</button>
+                <input type="hidden" name="signature" id="signatureInput" required>
                 </tr>
             </table>
 
@@ -340,8 +343,9 @@
                     <td><input type="date" name="tarikh_sedco"></td>
                 </tr>
                 <tr>
-                    <td>Tandatangan</td>
-                    <td><input type="text" name="tt_sedco" class="input-field"></td>
+                    <tr><td class="no-border">Signature:<br><canvas id="signatureCanvas" width="300" height="100" style="border:1px solid #ccc; border-radius:5px; background-color:#fff;"></canvas>
+                 <br><button type="button" class="btn btn-sm btn-outline-secondary mt-2" onclick="clearCanvas()">Clear Signature</button>
+                <input type="hidden" name="signature" id="signatureInput" required>
                 </tr>
             </table>
 
@@ -384,5 +388,75 @@
         }
         ?>
     </div>
+
+ <script>
+    const canvas = document.getElementById('signatureCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+
+    canvas.addEventListener('mousedown', (e) => {
+      drawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!drawing) return;
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    });
+
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseleave', () => drawing = false);
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      document.getElementById('signatureInput').value = '';
+    }
+
+    document.querySelector('form').addEventListener('submit', function (e) {
+      const dataURL = canvas.toDataURL('image/png');
+      document.getElementById('signatureInput').value = dataURL;
+    });
+  </script>
+
+<script>
+  const canvas = document.getElementById('signatureCanvas');
+  const ctx = canvas.getContext('2d');
+  let drawing = false;
+
+  canvas.addEventListener('mousedown', (e) => {
+    drawing = true;
+    ctx.beginPath();
+    ctx.moveTo(e.offsetX, e.offsetY);
+  });
+
+  canvas.addEventListener('mousemove', (e) => {
+    if (!drawing) return;
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+  });
+
+  canvas.addEventListener('mouseup', () => drawing = false);
+  canvas.addEventListener('mouseleave', () => drawing = false);
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById('signatureInput').value = '';
+  }
+
+  // Capture signature on form submit
+  document.querySelector('form').addEventListener('submit', function (e) {
+    const dataURL = canvas.toDataURL('image/png');
+    document.getElementById('signatureInput').value = dataURL;
+  });
+</script>
+
 </body>
 </html>
