@@ -22,7 +22,7 @@
     <a href="#"><i class="fas fa-home"></i> Home</a>
     <a href="#"><i class="fas fa-user"></i> Profile</a>
     <a href="#"><i class="fas fa-tasks"></i> Tasks</a>
-    <a href="#"><i class="fas fa-file-alt"></i> Submissions</a>
+    <a href="#"><i class="fas fa-file-alt"></i> Appication Status</a>
     <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 
