@@ -218,8 +218,9 @@ $avgEffectiveness = 4.2;
     <h2>📁 Menu</h2>
     <nav>
       <a href="#">📄 Submission Tasks</a>
-      <a href="#">⏳ Pending</a>
-      <a href="#">✅ Success</a>
+      <a href="#">📝 Task</a>
+      <a href="#">👨‍💼 Individual Reports</a> 
+      <a href="#">👤 Profile</a> 
     </nav>
   </div>
 
@@ -241,8 +242,9 @@ $avgEffectiveness = 4.2;
         <select>
           <option>All Departments</option>
           <option>HR</option>
-          <option>IT</option>
+          <option>MIS</option>
           <option>Finance</option>
+          <option>Bpu</option>
         </select>
 
         <button>📥 Export Report</button>
