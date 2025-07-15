@@ -4,5 +4,5 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: auth/login.php");
     exit();
 }
-header("Location: staff/dashboard.php");
+header("Location: /staff/dashboard.php");
 ?>

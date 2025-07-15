@@ -148,31 +148,7 @@ $stores = [
 </head>
 
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-        <span class="navbar-brand fw-bold">TRAINING MANAGEMENT SYSTEM</span>
-        <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
-                <li class="nav-item"><a class="nav-link" href="logout.php">LOG OUT</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Sidebar -->
-<div class="sidebar">
-    <h4 class="text-white text-center mb-4">Tasks</h4>
-    <a href="#"><i class="fas fa-home"></i> Home</a>
-    <a href="#"><i class="fas fa-user"></i> Profile</a>
-    <a href="#"><i class="fas fa-tasks"></i> Tasks</a>
-    <a href="#"><i class="fas fa-file-alt"></i> Submissions</a>
-    <a href="./auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-</div>
+<?php include '../staff/navbar.php'; ?>
 
 <!-- Main Content -->
 <div class="content">

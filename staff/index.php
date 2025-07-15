@@ -8,15 +8,18 @@ if (!isset($_SESSION['user_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <head>
     <title>Dashboard - Training Management System</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         body { transition: all 0.3s ease-in-out; }
         body {
-    background-image: url('http://localhost/STS/v2/assets/img/sedco.jpg'); /* Replace with the path to your image */
+    background-image: url('.x./assets/img/sedco.jpg'); /* Replace with the path to your image */
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -171,32 +174,8 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <span class="navbar-brand fw-bold">TRAINING MANAGEMENT SYSTEM</span>
-            <div class="collapse navbar-collapse justify-content-end">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">DASHBOARD</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
-                    <li class="nav-item"><a class="nav-link" href="logout.php">LOG OUT</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<?php include '../staff/navbar.php'; ?>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h4 class="text-white text-center mb-4">Dashboard</h4>
-        <a href="#"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="#"><i class="fas fa-user"></i> Profile</a>
-        <a href="task.php"><i class="fas fa-chart-line"></i> Tasks</a>
-        <a href="#"><i class="fas fa-file-alt"></i> Application status</a>
-        <a href="#"><i class="fas fa-file-alt"></i> Submissions</a>
-                <a href="./auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-
-    </div>
 
     <!-- Main Content -->
     <div class="content">

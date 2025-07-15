@@ -1,19 +1,34 @@
+# Aktifkan mod_rewrite
 RewriteEngine On
+
+# Jangan rewrite jika file atau folder memang ada
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Rewrite URL tanpa .php (support subfolder dan query string)
+RewriteRule ^(.+?)/?$ $1.php [L]
+
+# Redirect .php → versi tanpa .php (SEO/canonical)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^\s]+)\.php [NC]
+RewriteRule ^ %1 [R=301,L]
 
 # Prevent directory listing
 Options -Indexes
 
-# Protect sensitive files
+# Block akses ke file tersembunyi (dotfiles)
 <FilesMatch "^\.">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-# Protect config files
+# Lindungi file konfigurasi penting
 <FilesMatch "\.(env|config|ini|json|lock|sql)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block file cadangan, log, dan temporary
+<FilesMatch "\.(bak|old|orig|save|swp|swo|log)$">
     Order allow,deny
     Deny from all
 </FilesMatch>

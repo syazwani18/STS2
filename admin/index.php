@@ -5,7 +5,7 @@ require_once '../config/functions.php';
 
 // Check if user is admin
 if (!isAdmin()) {
-    header("Location: /dashboard.php");
+    header("Location: staff/dashboard.php");
     exit();
 }
 

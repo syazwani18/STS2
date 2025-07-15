@@ -1,4 +1,8 @@
 <?php
+  require_once "../eggeaster/easter.php";
+  ?>
+
+<?php
 session_start();
 require '../config/config.php';
 
